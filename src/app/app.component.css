@@ -1,0 +1,64 @@
+.container {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding-top: 15px;
+  margin-top: 24px;
+}
+
+.global-container h2 {
+  font-family: Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: rgb(71, 71, 71);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+table>tbody {
+  display: block;
+  height: 75vh;
+  overflow: auto;
+}
+
+table>thead,
+tbody tr {
+  display: table;
+  width: 100%;
+}
+
+tr.cases {
+  cursor: pointer;
+}
+
+table>thead {
+  width: 100%
+}
+
+table {
+  width: 100%;
+}
+
+.table thead tr th,
+.table tbody tr td {
+  width: 20%;
+}
+
+.table tr.global-stats th {
+  border-bottom: 1px solid #dee2e6
+}
+
+.table-title {
+  padding-bottom: 15px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.sortIcon {
+  padding-left: 15px;
+}

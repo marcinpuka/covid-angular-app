@@ -1,0 +1,27 @@
+<div class="container">
+  <div style="text-align: center">
+    <h1>Covid API {{ searchInput.length }}</h1>
+
+    <div class="searchbar d-flex flex-row-reverse searchbar">
+      <div>
+        <input
+          class="form-control"
+          type="text"
+          #searchbar
+          (keyup)="fetchCountry($event)"
+          [(ngModel)]="searchInput"
+          placeholder="Search by the Country"
+        />
+      </div>
+      <ul *ngIf="searchInput.length > 0">
+        <li
+          *ngFor="let selectedCountry of searchResult"
+          (click)="showDetails(selectedCountry)"
+          [hidden]="toggle"
+        >
+          <p>{{ selectedCountry.Country }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
