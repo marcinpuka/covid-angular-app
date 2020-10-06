@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { IStats } from './interfaces';
+import { Covid19Service } from "./covid19/covid19.service";
+
 
 
 @Component({
@@ -8,9 +10,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   countries;
-  global;
+  global: IStats;
   receivedData;
   sortCasesCumulativeDesc = false;
   sortNewCasesDesc = false;
@@ -19,16 +21,25 @@ export class AppComponent {
   sortBy: string;
   nameSortAsc = false;
 
-  constructor(private http: HttpClient) {
-    // let params = new HttpParams().set('userId', '1');
-    this.http
-      .get('https://api.covid19api.com/summary')
+  constructor(private covid19Service: Covid19Service) {
+
+    this.global = {
+      NewConfirmed: 1,
+      TotalConfirmed: 1,
+      NewDeaths: 1,
+      TotalDeaths: 1
+    } as IStats
+  }
+
+  ngOnInit(): void {
+
+    this.covid19Service.getStats()
       .subscribe((value: any) => {
         this.countries = value.Countries;
         this.global = value.Global;
         this.receivedData = value.Countries;
         this.toggleCasesCumulative();
-      });
+      })
   }
 
   updateCountry(event) {
