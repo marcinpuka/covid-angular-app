@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
     this.covid19Service.getStats()
       .subscribe((value: any) => {
         this.countries = value.Countries;
+        //this.countries = this.covid19Service.transformCountries(value.Countries);
         this.global = value.Global;
         this.receivedData = value.Countries;
         this.toggleCasesCumulative();

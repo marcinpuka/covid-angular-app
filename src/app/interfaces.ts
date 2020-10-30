@@ -4,5 +4,6 @@ export interface IStats {
     TotalConfirmed: number;
     NewDeaths: number;
     TotalDeaths: number;
+    Continent: string;
 }
 
